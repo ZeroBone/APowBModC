@@ -28,10 +28,29 @@ long int aPowbModC(long int a, long int b, long int x) {
 	
 	long int t = a;
 	long int x1 = b;
-	/* long int d = (a * a * a * a * a * a) % x; */
 	long int d = 1;
 	
-	while (x1 > 0) {
+	if (x1 > 0) {
+		
+		while (1) {
+			
+			if (x1 % 2 == 1) {
+			
+				d = (d * t) % x;
+				
+			}
+			
+			x1 /= 2;
+			
+			if (x1 <= 0) break;
+			
+			t = (t * t) % x;
+				
+		}
+		
+	}
+	
+	/*while (x1 > 0) {
 		
 		if (x1 % 2 == 1) {
 			
@@ -44,7 +63,7 @@ long int aPowbModC(long int a, long int b, long int x) {
 		
 		x1 /= 2;
 		
-	}
+	}*/
 	
 	return d;
 	
